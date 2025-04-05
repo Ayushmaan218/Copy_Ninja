@@ -8,7 +8,7 @@ function UploadForm() {
 
   const uploadText = async () => {
     try {
-      const res = await axios.post(`http://localhost:5000/api/clipboard/text`, { text });
+      const res = await axios.post(`https://copy-ninja-backend.onrender.com/api/clipboard/text`, { text });
       setCode(res.data.code);
     } catch (err) {
       console.error("Text upload failed", err);
@@ -20,7 +20,7 @@ function UploadForm() {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const res = await axios.post(`http://localhost:5000/api/clipboard/upload`, formData);
+      const res = await axios.post(`https://copy-ninja-backend.onrender.com/api/clipboard/upload`, formData);
       setCode(res.data.code);
     } catch (err) {
       console.error("File upload failed", err);
