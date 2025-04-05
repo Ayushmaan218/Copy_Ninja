@@ -1,0 +1,38 @@
+# === NODE ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# === ENVIRONMENT FILES ===
+.env
+.env.local
+.env.*.local
+client/.env
+server/.env
+
+# === VITE/REACT (client) ===
+client/dist/
+client/.vite/
+
+# === BUILD (optional if you build backend) ===
+server/dist/
+build/
+*.log
+
+# === UPLOADED FILES ===
+server/uploads/
+
+# === OS & EDITORS ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-workspace
+
+# === TEST COVERAGE ===
+coverage/
+
+# === ARCHIVES ===
+*.zip
+*.tar.gz

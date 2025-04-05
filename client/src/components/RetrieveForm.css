@@ -1,0 +1,51 @@
+.retrieve-section {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .retrieve-section input {
+    padding: 0.5rem;
+    margin-right: 10px;
+    width: 60%;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+  }
+  
+  .retrieve-section button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .text-output,
+  .file-output {
+    margin-top: 1rem;
+    background: #f3f3f3;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
+  .text-output pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #fdfdfd;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-family: monospace;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
+  
