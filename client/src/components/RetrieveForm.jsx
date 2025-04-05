@@ -52,14 +52,16 @@ function RetrieveForm() {
         </div>
       )}
 
-      {result?.fileUrl && (
-        <div className="file-output">
-          <p><strong>File Shared:</strong></p>
-          <a href={result.fileUrl} target="_blank" rel="noreferrer">
-            Download: {result.originalName}
-          </a>
-        </div>
-      )}
+      {result?.fileUrl && (() => {
+  // Automatically trigger file download
+  const link = document.createElement('a');
+  link.href = result.fileUrl;
+  link.download = result.originalName || 'file';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+})()}
+
 
       {result?.error && <p className="error">{result.error}</p>}
     </div>
