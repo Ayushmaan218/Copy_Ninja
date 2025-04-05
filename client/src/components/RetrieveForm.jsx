@@ -12,23 +12,15 @@ function RetrieveForm() {
       const res = await axios.get(`https://copy-ninja-backend.onrender.com/api/clipboard/${code}`);
       const data = res.data;
       setResult(data);
-      setCopied(false); // Reset copy state
+      setCopied(false);
 
-      // If it's a file, download it automatically
       if (data.type === 'file' && data.fileUrl) {
-        const fileRes = await axios.get(data.fileUrl, {
-          responseType: 'blob',
-        });
-
-        const blob = new Blob([fileRes.data]);
-        const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url;
+        a.href = data.fileUrl;
         a.download = data.originalName || 'download';
         document.body.appendChild(a);
         a.click();
         a.remove();
-        window.URL.revokeObjectURL(url);
       }
     } catch (err) {
       setResult({ error: 'Not found or expired' });
@@ -39,7 +31,7 @@ function RetrieveForm() {
     try {
       await navigator.clipboard.writeText(result.content);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000); // Reset after 2s
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Copy failed", err);
     }
@@ -69,8 +61,6 @@ function RetrieveForm() {
           <pre>{result.content}</pre>
         </div>
       )}
-
-      {/* Removed file link display since we're auto-downloading */}
 
       {result?.error && <p className="error">{result.error}</p>}
     </div>
