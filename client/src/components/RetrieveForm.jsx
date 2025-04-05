@@ -9,7 +9,7 @@ function RetrieveForm() {
 
   const retrieve = async () => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/clipboard/${code}`);
+        const res = await axios.get(`https://copy-ninja-backend.onrender.com/api/clipboard/${code}`);
         setResult(res.data);
       setCopied(false); // reset copied state
     } catch {
