@@ -14,15 +14,24 @@ function RetrieveForm() {
       setResult(data);
       setCopied(false);
 
-      if (data.type === 'file' && data.fileUrl) {
+      // Handle file download
+      if (data.type !== 'text') {
+        const fileRes = await axios.get(`https://copy-ninja-backend.onrender.com/api/clipboard/${code}/download`, {
+          responseType: 'blob',
+        });
+
+        const blob = new Blob([fileRes.data]);
+        const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = data.fileUrl;
-        a.download = data.originalName || 'download';
+        a.href = url;
+        a.download = data.originalName || 'downloaded_file';
         document.body.appendChild(a);
         a.click();
         a.remove();
+        window.URL.revokeObjectURL(url);
       }
     } catch (err) {
+      console.error(err);
       setResult({ error: 'Not found or expired' });
     }
   };
