@@ -9,10 +9,28 @@ function RetrieveForm() {
 
   const retrieve = async () => {
     try {
-        const res = await axios.get(https://copy-ninja-backend.onrender.com/api/clipboard/${code});
-        setResult(res.data);
-      setCopied(false); // reset copied state
-    } catch {
+      const res = await axios.get(`https://copy-ninja-backend.onrender.com/api/clipboard/${code}`);
+      const data = res.data;
+      setResult(data);
+      setCopied(false); // Reset copy state
+
+      // If it's a file, download it automatically
+      if (data.type === 'file' && data.fileUrl) {
+        const fileRes = await axios.get(data.fileUrl, {
+          responseType: 'blob',
+        });
+
+        const blob = new Blob([fileRes.data]);
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = data.originalName || 'download';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      }
+    } catch (err) {
       setResult({ error: 'Not found or expired' });
     }
   };
@@ -52,14 +70,7 @@ function RetrieveForm() {
         </div>
       )}
 
-      {result?.fileUrl && (
-        <div className="file-output">
-          <p><strong>File Shared:</strong></p>
-          <a href={result.fileUrl} target="_blank" rel="noreferrer">
-            Download: {result.originalName}
-          </a>
-        </div>
-      )}
+      {/* Removed file link display since we're auto-downloading */}
 
       {result?.error && <p className="error">{result.error}</p>}
     </div>
