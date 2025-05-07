@@ -31,6 +31,7 @@ function UploadForm() {
   return (
     <div className="upload-section">
       <h2>Upload</h2>
+
       <textarea
         placeholder="Enter text"
         value={text}
