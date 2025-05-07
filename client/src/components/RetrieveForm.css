@@ -65,6 +65,18 @@ button:hover {
   border-radius: 6px;
 }
 
+.code-input {
+  width: 150px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin: 0 auto 12px;
+  display: block;
+}
+
 .text-header {
   display: flex;
   justify-content: space-between;
