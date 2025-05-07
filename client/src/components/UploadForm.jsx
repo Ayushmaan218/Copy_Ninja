@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { QRCode } from 'qrcode.react'; // Corrected import
+import QRCode from 'qrcode.react'; // Corrected to default import
 import './RetrieveForm.css'; // reuse the same CSS or separate if needed
 
 function UploadForm() {
