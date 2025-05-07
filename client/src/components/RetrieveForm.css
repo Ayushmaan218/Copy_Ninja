@@ -1,51 +1,86 @@
-.retrieve-section {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    max-width: 600px;
-    margin: 2rem auto;
-    text-align: center;
-  }
-  
-  .retrieve-section input {
-    padding: 0.5rem;
-    margin-right: 10px;
-    width: 60%;
-    border-radius: 8px;
-    border: 1px solid #aaa;
-  }
-  
-  .retrieve-section button {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-  
-  .text-output,
-  .file-output {
-    margin-top: 1rem;
-    background: #f3f3f3;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: left;
-  }
-  
-  .text-output pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: #fdfdfd;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    font-family: monospace;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 1rem;
-  }
-  
+/* Shared styles */
+.upload-section, .retrieve-section {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+.upload-section h2,
+.retrieve-section h2 {
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+textarea,
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Code display */
+.code-display {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Retrieve section specific */
+.text-output {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.text-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: #218838;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
