@@ -56,6 +56,13 @@ button:hover {
   color: #28a745;
 }
 
+.toggle-upload {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  font-weight: bold;
+}
+
 /* Retrieve section specific */
 .text-output {
   margin-top: 20px;
