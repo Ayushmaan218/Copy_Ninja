@@ -1,5 +1,6 @@
-/* Shared styles */
-.upload-section, .retrieve-section {
+/* === Shared Layout === */
+.upload-section,
+.retrieve-section {
   max-width: 500px;
   margin: 30px auto;
   padding: 20px;
@@ -11,51 +12,48 @@
 
 .upload-section h2,
 .retrieve-section h2 {
+  text-align: center;
   margin-bottom: 15px;
   color: #333;
-  text-align: center;
 }
 
+/* === Inputs & Textarea === */
 textarea,
 input[type="text"],
 input[type="file"] {
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 12px;
   padding: 10px;
+  margin-bottom: 12px;
   font-size: 16px;
   border: 1px solid #aaa;
   border-radius: 5px;
-  resize: none; /* prevent dragging resize */
-  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* Prevent resize for textarea */
+textarea {
+  resize: none;
   min-height: 120px;
 }
 
+/* === Buttons === */
 button {
-  display: inline-block;
   padding: 10px 16px;
+  font-size: 16px;
   background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-right: 8px;
-  font-size: 16px;
   transition: background-color 0.2s ease;
+  margin-right: 8px;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* Code display */
-.code-display {
-  margin-top: 12px;
-  font-weight: bold;
-  color: #28a745;
-}
-
+/* === Toggle Radio Buttons === */
 .toggle-upload {
   margin-bottom: 1rem;
   display: flex;
@@ -63,25 +61,33 @@ button:hover {
   font-weight: bold;
 }
 
-/* Retrieve section specific */
-.text-output {
+/* === Code Output + QR === */
+.code-display {
   margin-top: 20px;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  color: #28a745;
 }
 
+/* === Retrieve Form Specific === */
 .code-input {
   width: 150px;
+  margin: 0 auto 12px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
   padding: 8px;
   border: 1px solid #aaa;
   border-radius: 6px;
-  margin: 0 auto 12px;
   display: block;
+}
+
+.text-output {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 .text-header {
