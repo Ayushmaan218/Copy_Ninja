@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './RetrieveForm.css';
 
 function UploadForm() {
   const [text, setText] = useState('');
