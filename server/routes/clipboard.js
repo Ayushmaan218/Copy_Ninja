@@ -15,7 +15,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Generate a random 6-character code
-const generateCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+function generateCode() {
+  return Math.floor(1000 + Math.random() * 9000).toString(); // 4-digit numeric code
+}
 
 /**
  * Upload a file
