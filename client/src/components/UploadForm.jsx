@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import QRCode from 'qrcode.react'; // Corrected to default import
-import './RetrieveForm.css'; // reuse the same CSS or separate if needed
+import './RetrieveForm.css'; // reuse same CSS or separate if needed
 
 function UploadForm() {
   const [text, setText] = useState('');
@@ -14,7 +13,7 @@ function UploadForm() {
 
     if (mode === 'text') {
       try {
-        const res = await axios.post(`https://copy-ninja-backend.onrender.com/api/clipboard/text`, { text });
+        const res = await axios.post(https://copy-ninja-backend.onrender.com/api/clipboard/text, { text });
         setCode(res.data.code);
         setText('');
       } catch (err) {
@@ -25,7 +24,7 @@ function UploadForm() {
       const formData = new FormData();
       formData.append('file', file);
       try {
-        const res = await axios.post(`https://copy-ninja-backend.onrender.com/api/clipboard/upload`, formData);
+        const res = await axios.post(https://copy-ninja-backend.onrender.com/api/clipboard/upload, formData);
         setCode(res.data.code);
         setFile(null);
       } catch (err) {
@@ -76,16 +75,9 @@ function UploadForm() {
         )}
       </form>
 
-      {code && (
-        <div className="code-display">
-          <p>Your Code: {code}</p>
-
-          {/* QR Code */}
-          <QRCode value={`https://copy-ninja-backend.onrender.com/api/clipboard/${code}`} />
-        </div>
-      )}
+      {code && <p className="code-display">Your Code: {code}</p>}
     </div>
   );
 }
 
-export default UploadForm;
+export default UploadForm; 
