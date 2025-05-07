@@ -10,13 +10,11 @@ export default function App() {
       console.error('AdsbyGoogle error:', e);
     }
 
+    // Hide the ad if it doesn't load properly
     const timeoutId = setTimeout(() => {
       const ad = document.querySelector('.adsbygoogle');
-      if (ad) {
-        const height = ad.offsetHeight;
-        if (height < 50) {
-          ad.style.display = 'none';
-        }
+      if (ad && ad.offsetHeight < 50) {
+        ad.style.display = 'none';
       }
     }, 3000);
 
@@ -31,9 +29,10 @@ export default function App() {
       <hr />
       <RetrieveForm />
 
-      {/* ✅ Ad at the bottom */}
+      {/* ✅ AdSense ad at the bottom */}
       <div style={{ marginTop: 'auto', padding: '20px 0' }}>
-        <ins className="adsbygoogle"
+        <ins
+          className="adsbygoogle"
           style={{
             display: 'block',
             textAlign: 'center',
@@ -42,7 +41,7 @@ export default function App() {
             overflow: 'hidden'
           }}
           data-ad-client="ca-pub-1405273524056171"
-          data-ad-slot="YOUR_REAL_SLOT_ID"  {/* Replace this with your actual ad slot ID */}
+          data-ad-slot="4914352073"
           data-ad-format="auto"
           data-full-width-responsive="true"
         ></ins>
