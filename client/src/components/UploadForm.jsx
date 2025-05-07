@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import QRCode from 'qrcode.react';
-import './RetrieveForm.css'; // reuse the same CSS
+import { QRCode } from 'qrcode.react'; // Corrected import
+import './RetrieveForm.css'; // reuse the same CSS or separate if needed
 
 function UploadForm() {
   const [text, setText] = useState('');
   const [file, setFile] = useState(null);
   const [code, setCode] = useState('');
   const [mode, setMode] = useState('text'); // 'text' or 'file'
-  const [displayMode, setDisplayMode] = useState('code'); // 'code' or 'qr'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,13 +34,11 @@ function UploadForm() {
     }
   };
 
-  const getQRCodeURL = () => `https://copy-ninja-backend.onrender.com/api/clipboard/${code}`;
-
   return (
     <div className="upload-section">
       <h2>Upload</h2>
 
-      {/* Mode Toggle */}
+      {/* Toggle: Text or File */}
       <div className="toggle-upload">
         <label>
           <input
@@ -61,7 +58,6 @@ function UploadForm() {
         </label>
       </div>
 
-      {/* Upload Form */}
       <form onSubmit={handleSubmit}>
         {mode === 'text' ? (
           <>
@@ -80,39 +76,13 @@ function UploadForm() {
         )}
       </form>
 
-      {/* Code / QR Toggle */}
       {code && (
-        <>
-          <div className="toggle-upload" style={{ marginTop: '16px' }}>
-            <label>
-              <input
-                type="radio"
-                value="code"
-                checked={displayMode === 'code'}
-                onChange={() => setDisplayMode('code')}
-              /> Show Code
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="qr"
-                checked={displayMode === 'qr'}
-                onChange={() => setDisplayMode('qr')}
-              /> Show QR Code
-            </label>
-          </div>
+        <div className="code-display">
+          <p>Your Code: {code}</p>
 
-          {displayMode === 'code' ? (
-            <p className="code-display">Your Code: {code}</p>
-          ) : (
-            <div style={{ textAlign: 'center', marginTop: '16px' }}>
-              <QRCode value={getQRCodeURL()} size={180} />
-              <p style={{ marginTop: '10px', fontWeight: 'bold', color: '#007BFF' }}>
-                Scan to retrieve
-              </p>
-            </div>
-          )}
-        </>
+          {/* QR Code */}
+          <QRCode value={`https://copy-ninja-backend.onrender.com/api/clipboard/${code}`} />
+        </div>
       )}
     </div>
   );
