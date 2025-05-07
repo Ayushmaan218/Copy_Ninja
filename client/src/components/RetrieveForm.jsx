@@ -7,7 +7,8 @@ function RetrieveForm() {
   const [result, setResult] = useState(null);
   const [copied, setCopied] = useState(false);
 
-  const retrieve = async () => {
+  const retrieve = async (e) => {
+    if (e) e.preventDefault(); // Prevent form from reloading page
     try {
       const res = await axios.get(`https://copy-ninja-backend.onrender.com/api/clipboard/${code}`);
       const data = res.data;
@@ -49,15 +50,16 @@ function RetrieveForm() {
   return (
     <div className="retrieve-section">
       <h2>Retrieve</h2>
-      <input
-        type="text"
-        placeholder="Enter Code"
-        className="code-input"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-      />
-
-      <button onClick={retrieve}>Get</button>
+      <form onSubmit={retrieve}>
+        <input
+          type="text"
+          placeholder="Enter Code"
+          className="code-input"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+        />
+        <button type="submit">Get</button>
+      </form>
 
       {result?.type && <p><strong>Type:</strong> {result.type === 'text' ? 'Text' : 'File'}</p>}
 
