@@ -20,12 +20,16 @@ textarea,
 input[type="text"],
 input[type="file"] {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin-bottom: 12px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #aaa;
   border-radius: 5px;
-  resize: none;
+  resize: none; /* prevent dragging resize */
+  overflow: auto;
+  min-height: 120px;
 }
 
 button {
