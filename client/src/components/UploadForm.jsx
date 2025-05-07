@@ -13,7 +13,7 @@ function UploadForm() {
 
     if (mode === 'text') {
       try {
-        const res = await axios.post(https://copy-ninja-backend.onrender.com/api/clipboard/text, { text });
+        const res = await axios.post(`https://copy-ninja-backend.onrender.com/api/clipboard/text`, { text });
         setCode(res.data.code);
         setText('');
       } catch (err) {
@@ -24,7 +24,7 @@ function UploadForm() {
       const formData = new FormData();
       formData.append('file', file);
       try {
-        const res = await axios.post(https://copy-ninja-backend.onrender.com/api/clipboard/upload, formData);
+        const res = await axios.post(`https://copy-ninja-backend.onrender.com/api/clipboard/upload`, formData);
         setCode(res.data.code);
         setFile(null);
       } catch (err) {
@@ -80,4 +80,4 @@ function UploadForm() {
   );
 }
 
-export default UploadForm; 
+export default UploadForm;
