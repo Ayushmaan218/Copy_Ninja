@@ -51,10 +51,12 @@ function RetrieveForm() {
       <h2>Retrieve</h2>
       <input
         type="text"
+        placeholder="Enter Code"
+        className="code-input"
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        placeholder="Enter code"
       />
+
       <button onClick={retrieve}>Get</button>
 
       {result?.type && <p><strong>Type:</strong> {result.type === 'text' ? 'Text' : 'File'}</p>}
