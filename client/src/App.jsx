@@ -16,10 +16,11 @@ export default function App() {
       <h1>📋 Copy Ninja</h1>
 
       {/* ✅ AdSense Ad Unit */}
+      {/* Replace data-ad-slot="1234567890" with your real slot ID */}
       <ins className="adsbygoogle"
         style={{ display: 'block', textAlign: 'center', margin: '20px 0' }}
         data-ad-client="ca-pub-1405273524056171"
-        data-ad-slot="1234567890"  {/* Replace with your actual slot ID */}
+        data-ad-slot="1234567890"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
 
