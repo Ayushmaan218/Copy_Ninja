@@ -22,14 +22,23 @@ export default function App() {
   }, []);
 
   return (
-    <div className="container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div
+      className="container"
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        paddingBottom: '60px', // Space for bottom ad
+      }}
+    >
       <h1>📋 Copy Ninja</h1>
 
       <UploadForm />
-      <hr />
+      <hr style={{ margin: '2rem 0' }} />
       <RetrieveForm />
 
-      {/* ✅ AdSense ad at the bottom */}
+      {/* ✅ Bottom AdSense Ad */}
       <div style={{ marginTop: 'auto', padding: '20px 0' }}>
         <ins
           className="adsbygoogle"
@@ -38,7 +47,7 @@ export default function App() {
             textAlign: 'center',
             width: '100%',
             height: 'auto',
-            overflow: 'hidden'
+            overflow: 'hidden',
           }}
           data-ad-client="ca-pub-1405273524056171"
           data-ad-slot="4914352073"
