@@ -13,8 +13,14 @@ app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 app.use("/api/clipboard", clipboardRoutes);
 
+// Add this:
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is alive!");
+});
+
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("MongoDB connected");
     app.listen(PORT, () => console.log("Server running on port 5000"));
-  }).catch(console.error);
+  })
+  .catch(console.error);
